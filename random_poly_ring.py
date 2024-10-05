@@ -18,7 +18,3 @@ def random_normal_poly(coef_modulus:int, poly_modulus:np.array):
     result_poly = np.round(result_poly)
     return quotient_ring_poly(result_poly, coef_modulus,poly_modulus)
 
-    # poly_modulus = init_poly_modulus(poly_modulus)
-    # size = len(poly_modulus) - 1
-    # coef = np.array([round(random.gauss(mu, sigma)) for _ in range(size)], dtype=object)
-    # return quotient_ring_poly(coef, coef_modulus, poly_modulus)

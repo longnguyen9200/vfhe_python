@@ -13,7 +13,7 @@ class DataView(tk.Tk):
         option_label = tk.Label(self, text="Select Option:")
         option_label.pack(anchor='w', padx=10, pady = (10,0))
         self.option_var = tk.StringVar()
-        self.option_var.set("encrypt")  # Mặc định là encrypt
+        self.option_var.set("encrypt")
         option_menu = tk.OptionMenu(self, self.option_var, "encrypt", "decrypt", command=self.update_ui)
         option_menu.config(width=20)
         option_menu.pack(anchor='w', padx=10, pady=(0,10))
@@ -26,7 +26,6 @@ class DataView(tk.Tk):
 
         # Decrypt frame
         self.decrypt_frame = tk.Frame(self)
-        # self.decrypt_frame.pack()
         self.decrypt_widgets = []
         self.create_decrypt_widgets()
 
@@ -36,9 +35,9 @@ class DataView(tk.Tk):
         file_label.pack(anchor='w', padx=10, pady=(5, 0))
         file_path_frame = tk.Frame(self.encrypt_frame)  # Create a frame to hold the entry and button
         self.file_path_edit = tk.Entry(file_path_frame)
-        self.file_path_edit.pack(side=tk.LEFT, fill=tk.X, expand=True)  # Make the entry expandable
+        self.file_path_edit.pack(side=tk.LEFT, fill=tk.X, expand=True)
         file_button = tk.Button(file_path_frame, text="Browse", command=self.browse_file)
-        file_button.pack(side=tk.LEFT)  # Place button to the right of the entry
+        file_button.pack(side=tk.LEFT)
         file_path_frame.pack(fill=tk.X,padx=10, pady=(0, 5))  # Allow the frame to f
 
         # Number inputs
@@ -46,19 +45,6 @@ class DataView(tk.Tk):
         n_label.pack(anchor='w', padx=10, pady=(5, 0))
         self.n_number_edit = tk.Entry(self.encrypt_frame)
         self.n_number_edit.pack(anchor='w', padx=10, pady=(0, 5))
-        # self.encrypt_widgets.append(n_number_edit)
-
-        # coef_label = tk.Label(self.encrypt_frame, text=f"Enter coef modulus:")
-        # coef_label.pack(anchor='w', padx=10, pady=(5, 0))
-        # self.coef_edit = tk.Entry(self.encrypt_frame)
-        # self.coef_edit.pack(anchor='w', padx=10, pady=(0, 5))
-        # self.encrypt_widgets.append(coef_edit)
-
-        # poly_label = tk.Label(self.encrypt_frame, text=f"Enter poly modulus:")
-        # poly_label.pack(anchor='w', padx=10, pady=(5, 0))
-        # self.poly_edit = tk.Entry(self.encrypt_frame)
-        # self.poly_edit.pack(anchor='w', padx=10, pady=(0, 5))
-        # self.encrypt_widgets.append(poly_edit)
 
         plain_label = tk.Label(self.encrypt_frame, text=f"Enter plaintext modulus:")
         plain_label.pack(anchor='w', padx=10, pady=(5, 0))
@@ -161,7 +147,6 @@ class DataView(tk.Tk):
         file_path = self.file_path_edit.get()
         n_number = int(self.n_number_edit.get())
         plain_modulus = int(self.plain_edit.get())
-        # plain_modulus = int(self.plaintext_modulus_edit.get())
         base = int(self.base_edit.get())
 
         self.controller.set_selected_option(select_option)
@@ -172,7 +157,6 @@ class DataView(tk.Tk):
         self.controller.process_encryption(data)
 
     def decryption_process(self):
-        # select_option = self.option_var.get()
         file_decrypt_path = self.decrypt_file_path_edit.get()
         mid_term = len(file_decrypt_path)//2
         c0_path = file_decrypt_path[:mid_term].lstrip()
@@ -184,7 +168,6 @@ class DataView(tk.Tk):
 
         data = self.controller.get_data_decrypt()
         self.controller.process_decryption(data)
-
 
     def update_ui(self, *args):
         option = self.option_var.get()

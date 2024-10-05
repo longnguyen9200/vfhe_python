@@ -2,7 +2,6 @@ from imports import *
 from number_untils import *
 from polynomial_division import *
 from typing import Union
-# import numpy as np
 
 def init_poly_modulus(poly_modulus: Union[int, np.array]) -> np.array:
     if isinstance(poly_modulus, int):

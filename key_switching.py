@@ -14,7 +14,6 @@ def poly_to_base_list(poly: quotient_ring_poly, base: int):
 
         a = np.pad(a, (0,addition_slot))
         coefs[i] = a 
-    # print(coefs)
     for i in range(col):
         p = quotient_ring_poly(coefs[:,i], poly.coef_modulus,poly.poly_modulus)
         result.append(p)

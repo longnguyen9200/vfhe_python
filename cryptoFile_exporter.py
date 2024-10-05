@@ -18,11 +18,6 @@ def write_list_to_file(list_items, file_name_c0, file_name_c1):
             file.write(f"([{coef_poly2_str}], {coef_modulus2_str}, [{poly_modulus2_str}])\n")
 
 def read_file_to_list(file_name1,file_name2):
-    # list_items = []
-    # with open(file_name1, 'r', encoding='utf-8') as file:
-    #     for line in file:
-    #         item = ast.literal_eval(line.strip())
-    #         list_items.append(item)
     with open(file_name1, 'r') as file1, open(file_name2, 'r') as file2:
         
         lines_a = file1.readlines()
@@ -49,6 +44,3 @@ def read_sk_from_file(file_path):
         line = file.readline()
         item = ast.literal_eval(line.strip())
         return quotient_ring_poly(item[0], item[1],item[2])
-
-# a = read_sk_from_file('./ciphertext/sk.txt')
-# print(a.coef_poly)
